@@ -648,3 +648,8 @@ section, [id]{scroll-margin-top: 88px;}
   font-size: 16px;
   letter-spacing: .5px;
 }
+
+/* Improve spacing after removing buttons */
+.price-card ul{
+  margin-bottom: 0;
+}
