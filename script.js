@@ -1,4 +1,13 @@
 (function () {
+  // Yandex Metrica: set your counter ID here if you use goals
+  const YM_METRICA_ID = null; // e.g. 12345678
+
+  function reachGoal(name) {
+    try {
+      if (YM_METRICA_ID && window.ym) window.ym(YM_METRICA_ID, "reachGoal", name);
+    } catch (e) {}
+  }
+
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
@@ -86,4 +95,49 @@
       submitToWhatsApp(leadForm);
     });
   }
+
+  // Track clicks with data-goal attribute
+  document.addEventListener("click", (e) => {
+    const el = e.target.closest && e.target.closest("[data-goal]");
+    if (!el) return;
+    const goal = el.getAttribute("data-goal");
+    if (goal) reachGoal(goal);
+  });
+
+  // Capture UTM / referer to WhatsApp message
+  function getUtm() {
+    const params = new URLSearchParams(window.location.search);
+    const keys = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"];
+    const parts = [];
+    keys.forEach(k => {
+      const v = params.get(k);
+      if (v) parts.push(`${k}=${v}`);
+    });
+    return parts.join("&");
+  }
+
+  // Extend submitToWhatsApp to include UTM
+  const __oldSubmit = submitToWhatsApp;
+  submitToWhatsApp = function(form){
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+
+    const msgBase = buildMessage({
+      type: sanitize(data.type),
+      name: sanitize(data.name),
+      phone: sanitize(data.phone),
+      address: sanitize(data.address),
+      comment: sanitize(data.comment)
+    });
+
+    const utm = getUtm();
+    const ref = document.referrer ? sanitize(document.referrer) : "";
+    const extra = [];
+    if (utm) extra.push(`UTM: ${utm}`);
+    if (ref) extra.push(`Ref: ${ref}`);
+
+    const msg = extra.length ? (msgBase + "\n\n" + extra.join("\n")) : msgBase;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 })();

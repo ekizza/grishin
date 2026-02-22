@@ -6,6 +6,8 @@
   <title>ИП Гришин — входные двери, заборы, домофонные двери | Саранск</title>
   <meta name="description" content="Производство и установка входных металлических дверей, заборов и домофонных дверей в Саранске и Мордовии. Бесплатный замер. Гарантия. Под ключ." />
   <meta name="theme-color" content="#0b0f14" />
+  <!-- Yandex verification (optional) -->
+  <meta name="yandex-verification" content="" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="ИП Гришин — двери и заборы от производителя (Саранск)" />
@@ -36,9 +38,11 @@
         </button>
         <ul class="nav__menu" id="navMenu">
           <li><a href="#services">Услуги</a></li>
+          <li><a href="#prices">Цены</a></li>
           <li><a href="#works">Работы</a></li>
           <li><a href="#process">Как работаем</a></li>
           <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#map">Схема проезда</a></li>
           <li><a href="#contacts">Контакты</a></li>
         </ul>
       </nav>
@@ -189,6 +193,57 @@
         </div>
       </div>
     </section>
+
+
+    <!-- PRICES -->
+    <section class="section" id="prices">
+      <div class="container">
+        <header class="section__head">
+          <h2>Цены от</h2>
+          <p class="muted">Точная стоимость — после замера и уточнения материалов. Работаем без посредников.</p>
+        </header>
+
+        <div class="grid3">
+          <article class="price-card">
+            <h3>Входные двери</h3>
+            <p class="price"><span>от</span> 18 900 ₽</p>
+            <ul class="muted">
+              <li>квартира / дом</li>
+              <li>утепление, замки, отделка</li>
+              <li>возможна установка в день доставки</li>
+            </ul>
+            <a class="btn btn--secondary" href="#lead" data-prefill="Входная дверь" data-goal="price_lead_door">Уточнить цену</a>
+          </article>
+
+          <article class="price-card">
+            <h3>Заборы</h3>
+            <p class="price"><span>от</span> 1 900 ₽/пог.м</p>
+            <ul class="muted">
+              <li>профнастил / секции</li>
+              <li>бетонирование столбов</li>
+              <li>калитки и ворота</li>
+            </ul>
+            <a class="btn btn--secondary" href="#lead" data-prefill="Забор / ворота" data-goal="price_lead_fence">Рассчитать</a>
+          </article>
+
+          <article class="price-card">
+            <h3>Домофонные двери</h3>
+            <p class="price"><span>от</span> 29 900 ₽</p>
+            <ul class="muted">
+              <li>подъездные, антивандальные</li>
+              <li>подготовка под домофон</li>
+              <li>доводчики и усиление</li>
+            </ul>
+            <a class="btn btn--secondary" href="#lead" data-prefill="Домофонная дверь" data-goal="price_lead_intercom">Оставить заявку</a>
+          </article>
+        </div>
+
+        <div class="note">
+          <strong>Важно:</strong> цены зависят от размеров, фурнитуры и монтажа. Замер — бесплатно.
+        </div>
+      </div>
+    </section>
+
 
     <!-- WORKS -->
     <section class="section" id="works">
@@ -343,12 +398,43 @@
     </section>
 
 
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <header class="section__head">
+          <h2>Частые вопросы</h2>
+          <p class="muted">Коротко отвечаем на то, что чаще всего спрашивают перед заказом.</p>
+        </header>
+
+        <div class="faq">
+          <details>
+            <summary>Сколько стоит замер?</summary>
+            <p class="muted">Замер в Саранске — бесплатно. На месте уточняем размеры, показываем варианты и сразу считаем стоимость.</p>
+          </details>
+          <details>
+            <summary>Сколько по времени изготовление?</summary>
+            <p class="muted">Срок зависит от модели и загруженности производства. После замера назовём точные сроки и зафиксируем их.</p>
+          </details>
+          <details>
+            <summary>Можно ли установить в день доставки?</summary>
+            <p class="muted">Часто — да. Если монтажная бригада свободна и подготовлено место установки, ставим в тот же день.</p>
+          </details>
+          <details>
+            <summary>Делаете ли вы ворота и калитки?</summary>
+            <p class="muted">Да. Откатные/распашные ворота, калитки, автоматика — по запросу.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
     <!-- CONTACTS -->
     <section class="section" id="contacts">
       <div class="container">
         <header class="section__head">
           <h2>Контакты</h2>
-          <p class="muted">ИП Гришин • Саранск</p>
+          <p class="muted">ИП Гришин • г. Саранск, ул. Павлова, 25Б</p>
         </header>
 
         <div class="contact">
@@ -390,10 +476,19 @@
           </div>
 
           <div class="card">
-            <h3>Карта</h3>
+            <h3 id="map">Карта</h3>
             <p class="muted">Если будет адрес/точка на карте — вставим виджет Яндекс.Карт.</p>
-            <div class="map-placeholder" role="img" aria-label="Место для карты"></div>
-            <p class="fineprint">Подсказка: в Яндекс.Картах → Поделиться → HTML-код → вставить сюда.</p>
+            
+<iframe 
+  src="https://yandex.ru/map-widget/v1/?text=Саранск%20Павлова%2025Б&z=16"
+  width="100%" 
+  height="240" 
+  frameborder="0"
+  style="border-radius:16px; border:0;"
+  allowfullscreen="true">
+</iframe>
+
+            <p class="fineprint">Адрес: г. Саранск, ул. Павлова, 25Б. Если карта не загрузилась — откройте в Яндекс.Картах или постройте маршрут.</p>
           </div>
         </div>
       </div>
@@ -408,6 +503,12 @@
     </footer>
   </main>
 
+  <div class="sticky-cta" role="region" aria-label="Быстрые действия">
+    <a class="btn btn--primary" href="#lead" data-goal="sticky_lead">Рассчитать стоимость</a>
+    <a class="btn btn--secondary" href="tel:+79991501954" data-goal="sticky_call">Позвонить</a>
+  </div>
+
+
   <!-- JSON-LD (SEO) -->
   <script type="application/ld+json">
   {
@@ -420,6 +521,7 @@
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Саранск",
+      "streetAddress": "ул. Павлова, 25Б",
       "addressRegion": "Республика Мордовия",
       "addressCountry": "RU"
     },
