@@ -34,7 +34,7 @@
 
   // WhatsApp phone (CHANGE THIS)
   // IMPORTANT: set your real WhatsApp number in international format without +, spaces.
-  const WHATSAPP_NUMBER = "70000000000"; // <-- заменить на реальный номер
+  const WHATSAPP_NUMBER = "79991501954"; // <-- заменить на реальный номер
 
   const waLink = document.getElementById("waLink");
   if (waLink) waLink.href = `https://wa.me/${WHATSAPP_NUMBER}`;
