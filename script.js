@@ -11,6 +11,11 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+
   // Mobile menu
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
@@ -97,6 +102,18 @@
   }
 
   // Track clicks with data-goal attribute
+  // Scroll-to-top fix
+  document.addEventListener("click", (e) => {
+    const topLink = e.target.closest && e.target.closest('a[href="#pageTop"], .js-to-top');
+    if (topLink) {
+      e.preventDefault();
+      if (navMenu) navMenu.classList.remove("is-open");
+      if (navToggle) navToggle.setAttribute("aria-expanded", "false");
+      scrollToTop();
+      return;
+    }
+  });
+
   document.addEventListener("click", (e) => {
     const el = e.target.closest && e.target.closest("[data-goal]");
     if (!el) return;

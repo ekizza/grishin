@@ -612,3 +612,32 @@ h1{
   margin:0 0 12px;
   color: var(--muted);
 }
+
+
+/* Better responsiveness */
+@media (max-width: 720px){
+  .container{width: calc(100% - 28px);}
+  .hero{padding: 28px 0 22px;}
+  .section{padding: 34px 0;}
+  .section__head{flex-direction: column; align-items: flex-start;}
+  .hero__actions .btn{width: 100%;}
+  .header__row{gap: 10px;}
+  .brand__text strong{font-size: 14px;}
+  .brand__text small{font-size: 11px;}
+  .gallery{grid-template-columns: 1fr;}
+  .stats{grid-template-columns: 1fr;}
+  .map-actions .btn{width: 100%;}
+  iframe{height: 220px;}
+}
+
+@media (min-width: 1200px){
+  h1{letter-spacing: -0.03em;}
+  .hero__grid{gap: 34px;}
+  .card{padding: 22px;}
+  .tile{padding: 18px;}
+  .gallery .ph img{height: 220px;}
+}
+
+
+/* Anchor offset for sticky header */
+section, [id]{scroll-margin-top: 88px;}
